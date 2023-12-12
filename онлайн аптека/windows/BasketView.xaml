@@ -1,0 +1,127 @@
+﻿<Page x:Class="онлайн_аптека.windows.BasketView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:онлайн_аптека.windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="850"
+      Title="BasketView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="3">
+            <StackPanel.Background>
+                <LinearGradientBrush>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FFE85F7D" Offset="0"/>
+                        <GradientStop Color="#FFCBF47B" Offset="0.5"/>
+                        <GradientStop Color="#FFEED114" Offset="1"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <StackPanel>
+                <TextBlock FontSize="40" Margin="75,20,5,350" FontWeight="Bold" >
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF6D1E08"/>
+                            <GradientStop Color="#FF28DA18" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>Корзина онлайн-аптеки "ЗдоровьеТут"
+                </TextBlock>
+                <Button Name="Back" ToolTip="Назад" Margin="-770,-760,0,0" Height="50" Width="50" Click="BackButton_Click" >
+                    <Image Source="/images/back.png" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <ComboBox x:Name="DeliveryInput" Grid.Row="2" Height="36"  Margin="-300,-800,0,0" Width="160" DisplayMemberPath="Адрес" SelectedValuePath="КодАптеки"></ComboBox>
+        <Label FontStyle="Italic" Content="Список ваших товаров:" Margin="-500,150,0,0" FontSize="25" Height="40" Width="300"></Label>
+        <Label Grid.Row="2" Content="Пункты выдачи" Margin="-600,-800,0,0" Height="50" FontSize="23" Width="200"></Label>
+        <Border Name="ButtonBorder1" Height="40" Width="200" Margin="600,100,0,0" Background="#FF2E44AE" Visibility="Visible">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="#FF195284"/>
+                </Style>
+            </Border.Style>
+            <Button x:Name="MakeOrderButton" Content="Сформировать заказ" Foreground="White" FontSize="20"  Height="40" Width="200" Click="MakeOrderButton_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Background" Value="#FF3F9EF3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                                Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FF7CBCF6"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF0A4B86" Duration="0:0:0.0002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF3F9EF3" Duration="0:0:0.0002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+        <Label x:Name="resultSum" Content="Итоговая сумма" FontSize="25" Margin="-560,116,0,0" HorizontalAlignment="Center" Height="69" VerticalAlignment="Top" Width="238"></Label>
+        <ListView Margin="25,195,25,20" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="800" Name="BasketListView" Grid.RowSpan="3">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Удалить из корзины" Click="MenuItem_Click"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" MaxWidth="350"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20" Width="350" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Width="100" Grid.Row="1" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="5">
+                            <Image.Source>
+                                <Binding Path="Изображение">
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock VerticalAlignment="Center" TextAlignment="Center" Width="100" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5 5" FontSize="20" Grid.Row="0" Text="{Binding Название}"></TextBlock>
+                        <TextBlock Grid.Row="2" Text="{Binding Цена}"></TextBlock>
+                        <TextBlock Grid.Row="3" Width="350" Text="{Binding Описание}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
