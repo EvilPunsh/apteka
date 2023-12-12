@@ -1,0 +1,226 @@
+﻿<Page x:Class="онлайн_аптека.windows.adminMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:онлайн_аптека.windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="850"
+      Title="adminMenu">
+
+    <Grid>
+        <StackPanel>
+            <StackPanel.Background>
+                <LinearGradientBrush>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FFE85F7D" Offset="0"/>
+                        <GradientStop Color="#FFCBF47B" Offset="0.5"/>
+                        <GradientStop Color="#FFEED114" Offset="1"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Border Name="ButtonBorder" Height="55" Width="310" Margin="470,525,20,0" Background="#FF2E44AE">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderBrush" Value="#FF195284"/>
+                    </Style>
+                </Border.Style>
+                <Button Click="ButtonChangeUser_Click" Content="Сменить пользователя" FontSize="28" Foreground="White">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Background" Value="#FF3F9EF3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                                Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7CBCF6"/>
+                                            </Trigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF0A4B86" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF3F9EF3" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
+            <Border Name="ButtonBorder1" Height="55" Width="200" Margin="600,-700,0,0" Background="#FF2E44AE">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderBrush" Value="#FF195284"/>
+                    </Style>
+                </Border.Style>
+                <Button Content="Каталог товаров" FontSize="25" Foreground="Khaki" Click="ButtonCatalog_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Background" Value="#FF3F9EF3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                                Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7CBCF6"/>
+                                            </Trigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF0A4B86" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF3F9EF3" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
+            <Border Name="ButtonBorder2" Height="55" Width="200" Margin="600,-500,0,0" Background="#FF2E44AE">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderBrush" Value="#FF195284"/>
+                    </Style>
+                </Border.Style>
+                <Button Content="Заказы" FontSize="25" Foreground="Khaki" Click="ButtonOrders_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Background" Value="#FF3F9EF3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                                Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7CBCF6"/>
+                                            </Trigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF0A4B86" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF3F9EF3" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
+            <Border Name="ButtonBorder3" Height="55" Width="200" Margin="600,-300,0,0" Background="#FF2E44AE">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderBrush" Value="#FF195284"/>
+                    </Style>
+                </Border.Style>
+                <Button Content="Пользователи" FontSize="25" Foreground="Khaki" Click="ButtonClient_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Background" Value="#FF3F9EF3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Name="border" BorderThickness="0" BorderBrush="Black"
+                                                Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF7CBCF6"/>
+                                            </Trigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="2,2,0,0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF0A4B86" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                            Duration="0:0:0.100" To="0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF3F9EF3" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Border>
+        </StackPanel>
+
+        <TextBlock FontSize="40" Margin="150,20,50,390" FontWeight="Bold" >
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6D1E08"/>
+                    <GradientStop Color="#FF28DA18" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>Онлайн-аптека "ЗдоровьеТут"</TextBlock>
+        <TextBlock FontSize="33" Margin="20,70,30,460" FontStyle="Italic" Foreground="#FF6F0404"><Run Text="Вы вошли как администратор"/></TextBlock>
+        <Image Margin="-70,120,150,100"  Source="/images/menu.jpg" />
+    </Grid>
+</Page>

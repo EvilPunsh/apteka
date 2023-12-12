@@ -1,0 +1,45 @@
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\онлайн аптека.exe.config
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\онлайн аптека.exe
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\онлайн аптека.pdb
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.csproj.AssemblyReference.cache
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.csproj.SuggestedBindingRedirects.cache
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека_MarkupCompile.cache
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека_MarkupCompile.lref
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.g.resources
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн_аптека.Properties.Resources.resources
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.csproj.GenerateResource.cache
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.csproj.CoreCompileInputs.cache
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.exe
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.pdb
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\authoriz.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\authoriz.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\App.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\registration.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\WindowWithFrame.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\WindowWithFrameForClient.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека_Content.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\EntityFramework.dll
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\EntityFramework.SqlServer.dll
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\EntityFramework.xml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\EntityFramework.SqlServer.xml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\bin\Debug\ru\EntityFramework.resources.dll
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\registration.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\WindowWithFrame.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\WindowWithFrameForClient.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\онлайн аптека.csproj.CopyComplete
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\clientMenu.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\clientMenu.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\clientCatalog.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\clientCatalog.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\BasketView.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\BasketView.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\userOrdersWindow.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\userOrdersWindow.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminCatalog.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminMenu.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminCatalog.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminMenu.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminOrders.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminOrders.baml
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminClient.g.cs
+D:\visual studio\projects\онлайн аптека\онлайн аптека\obj\Debug\windows\adminClient.baml

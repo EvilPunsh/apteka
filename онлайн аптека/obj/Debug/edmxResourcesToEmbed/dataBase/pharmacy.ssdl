@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Аптеки">
+    <Key>
+      <PropertyRef Name="КодАптеки" />
+    </Key>
+    <Property Name="КодАптеки" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Адрес" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ВремяРаботы" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="НомерТелефона" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Заказ">
+    <Key>
+      <PropertyRef Name="КодЗаказа" />
+    </Key>
+    <Property Name="КодЗаказа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодАптеки" Type="int" Nullable="false" />
+    <Property Name="КодКлиента" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Внедрение(Аптека).dbo.Заказ_Товар" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Заказ_Товар">
+    <Key>
+      <PropertyRef Name="КодТовара" />
+      <PropertyRef Name="КодЗаказа" />
+    </Key>
+    <Property Name="КодТовара" Type="int" Nullable="false" />
+    <Property Name="КодЗаказа" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Клиент">
+    <Key>
+      <PropertyRef Name="КодКлиента" />
+    </Key>
+    <Property Name="КодКлиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="50" />
+    <Property Name="КодПользователя" Type="int" />
+    <Property Name="Логин" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Пароль" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Пользователь">
+    <Key>
+      <PropertyRef Name="КодПользователя" />
+    </Key>
+    <Property Name="КодПользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Роль" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Товар">
+    <Key>
+      <PropertyRef Name="КодТовара" />
+    </Key>
+    <Property Name="КодТовара" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Цена" Type="int" Nullable="false" />
+    <Property Name="Количество" Type="int" Nullable="false" />
+    <Property Name="Описание" Type="varchar" MaxLength="90" Nullable="false" />
+    <Property Name="Тип" Type="varchar" MaxLength="90" />
+    <Property Name="Изображение" Type="image" />
+  </EntityType>
+  <Association Name="FK_Заказ_Аптеки">
+    <End Role="Аптеки" Type="Self.Аптеки" Multiplicity="1" />
+    <End Role="Заказ" Type="Self.Заказ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Аптеки">
+        <PropertyRef Name="КодАптеки" />
+      </Principal>
+      <Dependent Role="Заказ">
+        <PropertyRef Name="КодАптеки" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказ_Клиент">
+    <End Role="Клиент" Type="Self.Клиент" Multiplicity="1" />
+    <End Role="Заказ" Type="Self.Заказ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиент">
+        <PropertyRef Name="КодКлиента" />
+      </Principal>
+      <Dependent Role="Заказ">
+        <PropertyRef Name="КодКлиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказ_Товар_Заказ">
+    <End Role="Заказ" Type="Self.Заказ" Multiplicity="1" />
+    <End Role="Заказ_Товар" Type="Self.Заказ_Товар" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Заказ">
+        <PropertyRef Name="КодЗаказа" />
+      </Principal>
+      <Dependent Role="Заказ_Товар">
+        <PropertyRef Name="КодЗаказа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заказ_Товар_Товар">
+    <End Role="Товар" Type="Self.Товар" Multiplicity="1" />
+    <End Role="Заказ_Товар" Type="Self.Заказ_Товар" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Товар">
+        <PropertyRef Name="КодТовара" />
+      </Principal>
+      <Dependent Role="Заказ_Товар">
+        <PropertyRef Name="КодТовара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Клиент_Пользователь">
+    <End Role="Пользователь" Type="Self.Пользователь" Multiplicity="0..1" />
+    <End Role="Клиент" Type="Self.Клиент" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Пользователь">
+        <PropertyRef Name="КодПользователя" />
+      </Principal>
+      <Dependent Role="Клиент">
+        <PropertyRef Name="КодПользователя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="Аптеки" EntityType="Self.Аптеки" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заказ" EntityType="Self.Заказ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиент" EntityType="Self.Клиент" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Пользователь" EntityType="Self.Пользователь" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Товар" EntityType="Self.Товар" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заказ_Товар" EntityType="Self.Заказ_Товар" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Заказ_Товар].[КодТовара] AS [КодТовара], 
+    [Заказ_Товар].[КодЗаказа] AS [КодЗаказа]
+    FROM [dbo].[Заказ_Товар] AS [Заказ_Товар]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Заказ_Аптеки" Association="Self.FK_Заказ_Аптеки">
+      <End Role="Аптеки" EntitySet="Аптеки" />
+      <End Role="Заказ" EntitySet="Заказ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказ_Клиент" Association="Self.FK_Заказ_Клиент">
+      <End Role="Клиент" EntitySet="Клиент" />
+      <End Role="Заказ" EntitySet="Заказ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказ_Товар_Заказ" Association="Self.FK_Заказ_Товар_Заказ">
+      <End Role="Заказ" EntitySet="Заказ" />
+      <End Role="Заказ_Товар" EntitySet="Заказ_Товар" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заказ_Товар_Товар" Association="Self.FK_Заказ_Товар_Товар">
+      <End Role="Товар" EntitySet="Товар" />
+      <End Role="Заказ_Товар" EntitySet="Заказ_Товар" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Клиент_Пользователь" Association="Self.FK_Клиент_Пользователь">
+      <End Role="Пользователь" EntitySet="Пользователь" />
+      <End Role="Клиент" EntitySet="Клиент" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
